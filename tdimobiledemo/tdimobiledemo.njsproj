@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="api\note.js" />
+    <Compile Include="api\search.js" />
     <Compile Include="app.js" />
     <Compile Include="azureMobile.js" />
     <Compile Include="routes\index.js" />

@@ -10,6 +10,7 @@
 
 var app = express();
 var azureMobileApps = require('azure-mobile-apps');
+var searchTasks = require('./api/search');
 
 //// view engine setup
 //app.set('views', path.join(__dirname, 'views'));
@@ -51,6 +52,7 @@ mobileApp.api.import('./api');
 mobileApp.tables.initialize()
     .then(function () {
         app.use(mobileApp);    // Register the Azure Mobile Apps middleware
+        app.use('/api/search', searchTasks(mobileApp.configuration));
         app.listen(process.env.PORT || 3000);   // Listen for requests
     });
 
